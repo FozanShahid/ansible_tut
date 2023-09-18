@@ -6,6 +6,7 @@
 
 
   - name: install updates (CentOS)
+    tags: always
     dnf:
       update_only: yes
       update_cache: yes
@@ -13,6 +14,7 @@
 
  
   - name: install updates (Ubuntu)
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
@@ -25,7 +27,8 @@
   tasks:
 
   - name: install apache and php for Ubuntu Servers
-    package:
+    tags: apache,apache2,ubuntu
+    apt:
       name: 
         - apache2
         - libapache2-mod-php
@@ -34,6 +37,7 @@
  
 
   - name: install apache and php for CentOS Servers
+    tags: apache,centos,httpd
     dnf:
       name:
         - httpd
@@ -49,6 +53,7 @@
   tasks:
 
   - name: install mariadb package (CentOS)
+    tags: centos,mariadb,db
     dnf:
       name: mariadb
       state: latest
@@ -56,6 +61,7 @@
 
 
   - name: install mariadb-server package (Ubuntu)
+    tags: db,mariadb,ubuntu
     apt:
       name: mariadb-server
       state: latest
@@ -68,6 +74,7 @@
   tasks:
 
   - name: install samba package
+    tags: samba
     package:
       name: samba
       state: latest
