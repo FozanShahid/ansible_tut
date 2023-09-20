@@ -7,3 +7,6 @@ server2@192.168.100.90
 
 [file_servers]
 server3@192.168.100.91
+
+[workstations]
+workstation@192.168.100.92
